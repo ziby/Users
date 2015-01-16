@@ -1,0 +1,11 @@
+﻿@model Users.Models.User
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Account</h2>
+
+<h3>Сообщение:</h3>
+<p>@Model.TextMessage</p>
+@Html.ActionLink("Выход", "Logout")

@@ -1,0 +1,38 @@
+﻿@using Users.Models
+@model LoginInfo
+
+@{
+    ViewBag.Title = "Account";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post, new { name = "Login" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>User</h4>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(loginInfo => loginInfo.Login, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(loginInfo => loginInfo.Login, new { @class = "form-control" })
+                @Html.ValidationMessageFor(loginInfo => loginInfo.Login)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(loginInfo => loginInfo.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(loginInfo => loginInfo.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(loginInfo => loginInfo.Password)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Вход" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
